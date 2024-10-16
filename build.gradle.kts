@@ -7,6 +7,7 @@
 
 plugins {
     application
+    id("org.barfuin.gradle.taskinfo") version "2.2.0"
 }
 
 repositories {
@@ -26,7 +27,7 @@ java {
 }
 
 application {
-    mainClass = "xyz.brandonirizarry.moveSquare.Game"
+    mainClass = "xyz.brandonirizarry.movesquarebackend.game.Game"
     mainModule = "xyz.brandonirizarry.moveSquareBackend"
 }
 

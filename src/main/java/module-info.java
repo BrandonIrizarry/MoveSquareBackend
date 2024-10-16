@@ -1,3 +1,3 @@
 open module xyz.brandonirizarry.moveSquareBackend {
-    exports xyz.brandonirizarry.moveSquare;
+   exports xyz.brandonirizarry.movesquarebackend.game;
 }
