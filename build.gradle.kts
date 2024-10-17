@@ -5,8 +5,12 @@
  * Learn more about Gradle by exploring our Samples at https://docs.gradle.org/8.10/samples
  */
 
+group = "xyz.brandonirizarry"
+version = "1.0"
+
 plugins {
     application
+    `maven-publish`
     id("org.barfuin.gradle.taskinfo") version "2.2.0"
 }
 
@@ -37,4 +41,22 @@ tasks.named<Test>("test") {
 
 tasks.named<JavaExec>("run") {
     standardInput = System.`in`
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+            artifactId = "move-square-backend"
+        }
+    }
+    repositories {
+        maven {
+            url = uri("https://maven.pkg.github.com/BrandonIrizarry/MoveSquareBackend")
+            credentials {
+                username = System.getenv("GITHUB_USER")
+                password = System.getenv("GITHUB_PAT")
+            }
+        }
+    }
 }
